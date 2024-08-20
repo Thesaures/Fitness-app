@@ -6,6 +6,7 @@ import Profile from "../Screens/profile";
 import React from "react";
 import Routine from "../Screens/routine";
 import CameraPage from "../Screens/camera";
+import HomeBottom from "../Screens/HomeBottom";
 import { View } from "react-native";
 const BottomTab = createBottomTabNavigator();
 
@@ -23,7 +24,7 @@ const BottomTabNavigation = () =>{
         >
             <BottomTab.Screen
                 name = "Home"
-                component = {Home}
+                component = {HomeBottom}
                 options={{
                     headerShown: false,
                     tabBarIcon: ({color}) =>{
