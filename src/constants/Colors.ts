@@ -3,5 +3,6 @@ export const Colors={
   inputbg:'#F7F8F8',
   button:'#9E71F1',
   pagebg:'white',
-  buttonMore:'#976CF2'
+  buttonMore:'#976CF2',
+  measureColor:'#E6A8E8'
 }
