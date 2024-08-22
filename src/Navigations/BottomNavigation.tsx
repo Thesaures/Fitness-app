@@ -1,5 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Icon from 'react-native-vector-icons/FontAwesome';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from '@react-native-vector-icons/fontawesome';
+import { Ionicons } from "@expo/vector-icons";
 import Home from "../Screens/home";
 import Search from "../Screens/search";
 import Profile from "../Screens/profile";
@@ -27,11 +29,7 @@ const BottomTabNavigation = () =>{
                 component = {HomeBottom}
                 options={{
                     headerShown: false,
-                    tabBarIcon: ({color}) =>{
-                        return(
-                            <Icon name="home" size={30} color={color}/>
-                        )
-                    }
+                    tabBarIcon: ({color})=>(<Ionicons name="home" size={25} color={color}/>)
                 }}
             />
              <BottomTab.Screen
@@ -39,11 +37,7 @@ const BottomTabNavigation = () =>{
                 component = {CameraPage}
                 options={{
                     headerShown: false,
-                    tabBarIcon: ({color}) =>{
-                        return(
-                            <Icon name="camera" size={30} color={color}/>
-                        )
-                    }
+                    tabBarIcon: ({color})=>(<Ionicons name="camera" size={25} color={color}/>)
                 }}
             />
             <BottomTab.Screen 
@@ -51,14 +45,12 @@ const BottomTabNavigation = () =>{
                 component={Search}   
                 options={{
                     headerShown: false,
-                    tabBarIcon: ({color}) =>{
-                        return(
-                            <View style={{padding:10,bottom:25,backgroundColor:"#9D70F1",borderRadius:30}}>
-                                <Icon name="search" size={25} color={"white"}/>
-                            </View>
-                            
-                        )
-                    }
+                    tabBarIcon: ({color})=>(
+                        <View style={{backgroundColor:'#8C66F3',bottom:20,padding:10,borderRadius:30}}>
+                              <Ionicons name="search" size={25} color={'white'}/>
+                        </View>
+                  
+                )
                 }}
             /> 
 
@@ -66,12 +58,7 @@ const BottomTabNavigation = () =>{
                 name = "Routine"
                 component = {Routine}
                 options={{
-                    headerShown: false,
-                    tabBarIcon: ({color}) =>{
-                        return(
-                            <Icon name="list" size={30} color={color}/>
-                        )
-                    }
+                    tabBarIcon: ({color})=>(<Ionicons name="list" size={25} color={color}/>)
                 }}
             />
             
@@ -80,11 +67,7 @@ const BottomTabNavigation = () =>{
                 component = {Profile}
                 options={{
                     headerShown: false,
-                    tabBarIcon: ({color}) =>{
-                        return(
-                            <Icon name="user" size={30} color={color}/>
-                        )
-                    }
+                    tabBarIcon: ({color})=>(<Ionicons name="person" size={25} color={color}/>)
                 }}
             />
 

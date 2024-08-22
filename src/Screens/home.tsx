@@ -11,8 +11,9 @@ import Header from '../components/Header';
 import HomePageHeader from '../components/HomePageHeader';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { authAction } from '../Store/Index';
+import { logout } from '../features/auth/authSlice';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function Home() {
   const [isPedometerAvailable, setIsPedometerAvailable] = useState('checking');
   const [pastStepCount, setPastStepCount] = useState(0);
@@ -23,9 +24,10 @@ export default function Home() {
 
   const dispatch = useDispatch();
     const auth = useSelector((state:{isAuth: boolean;}) => state.isAuth);
-    const clickFunction =()=>{
+    const clickFunction =async()=>{
         console.log('logged in :',auth)
-        dispatch(authAction.logout())
+        // await AsyncStorage.setItem('my-key', 'false');
+        dispatch(logout())
     }
   const subscribe = async () => {
     const permissionResult = await Pedometer.getPermissionsAsync();

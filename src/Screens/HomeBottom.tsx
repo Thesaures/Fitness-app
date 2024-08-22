@@ -2,14 +2,13 @@ import { View,Text, StyleSheet } from "react-native"
 import HomePageHeader from "../components/HomePageHeader";
 import Bmi from "../components/Bmi_Componet";
 import { Colors } from "../constants/Colors";
+import HeartRate from "../components/HeartRate";
 const HomeBottom =()=>{
     return (
         <View style={styles.container}>
             <HomePageHeader/>
             <Bmi/>
-            <Text>
-                  this is bottom home page !
-            </Text>
+            <HeartRate/>
         </View>
     )
 }

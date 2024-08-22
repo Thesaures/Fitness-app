@@ -7,9 +7,10 @@ import Facebook from "../../assets/images/Facebook.svg";
 import Google from '../../assets/images/google.svg'
 import { useState } from "react";
 import { fieldCheck } from "../helper";
-import { authAction } from "../Store/Index";
+import { login} from "../features/auth/authSlice";
 import { useDispatch,useSelector} from "react-redux";
 import React from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const HomePage = ()=>{
     const [name,setName] = useState('');
     const [number,setNumber] = useState('');
@@ -20,25 +21,23 @@ const HomePage = ()=>{
     const [eye,setEye] = useState(true);
     const [checkBox,setCheckBox] = useState(false);
     const dispatch = useDispatch();
-    const auth = useSelector((state:{isAuth: boolean;}) => state.isAuth);
-    const clickFunction =()=>{
-        console.log('logged in :',auth)
-        dispatch(authAction.login())
-    }
+    const auth = useSelector((state:{value:boolean}) => state.auth.isAuth);
     const onCheck =()=>{
         setCheckBox(!checkBox)
     }
     const changeEye = ()=>{
         setEye(!eye)
     }
-    const navigateToPage =()=>{
+    const navigateToPage =async()=>{
         const {message,field} = fieldCheck({name,number,email,password,checkBox})
         console.log('this is message: ',message,',this is field :',field)
         setField(field); 
         setMessage(message);
 
         if(!message && !field && checkBox){
-            dispatch(authAction.login())
+            // await AsyncStorage.setItem('my-key','true');
+            console.log('haai this is : ',auth)
+            dispatch(login())
         }
     }
     return(
@@ -120,9 +119,7 @@ const HomePage = ()=>{
              </View>
              {fields == 'check' || fields =='all' && <>
                     <Text style={{color:'red',fontWeight:'500',padding:0,fontSize:10}}>{message}</Text>
-                </>}
-
-
+                </>} 
              <TouchableOpacity style = {styles.button} onPress={navigateToPage}>
                 <Text style = {styles.buttonText}>Register</Text>
             </TouchableOpacity>

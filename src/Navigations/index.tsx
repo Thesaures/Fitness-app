@@ -6,9 +6,21 @@ import { useDispatch, useSelector } from "react-redux";
 import UserNavigation from "./UserNavigation";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
+import { MMKVLoader, useMMKVStorage } from 'react-native-mmkv-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const Navigation =()=>{
     const dispatch = useDispatch();
-    const auth = useSelector((state:{isAuth: boolean;}) => state.isAuth);
+    const auth = useSelector((state:{value:boolean}) =>state.auth.isAuth);
+    console.log('this is auth : ',auth);
+    // const getValue =async()=>{
+    //     const value = await AsyncStorage.getItem('my-key');
+    //     console.log('value : ',value)
+    //     if(value){
+    //         dispatch(authAction.login())
+    //     }
+    // }
+    // getValue();
     return(
         <GestureHandlerRootView>
              <NavigationContainer >
