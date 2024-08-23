@@ -8,7 +8,7 @@ const WaterMeasure =(props:waterMeasure)=>{
             </View>
             <View>
             <Text>{start}- {end}</Text>
-            <Text>{measure}</Text>
+            <Text>{measure}ml</Text>
             </View>  
         </View>
     )

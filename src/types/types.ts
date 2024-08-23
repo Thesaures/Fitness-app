@@ -10,5 +10,5 @@ export type card ={
 export type waterMeasure={
     start:string;
     end:string;
-    measure:string;
+    measure:number;
 }

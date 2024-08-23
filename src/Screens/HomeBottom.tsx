@@ -1,4 +1,4 @@
-import { View,Text, StyleSheet } from "react-native"
+import { View,Text, StyleSheet, ScrollView } from "react-native"
 import HomePageHeader from "../components/HomePageHeader";
 import Bmi from "../components/Bmi_Componet";
 import { Colors } from "../constants/Colors";
@@ -9,14 +9,17 @@ const HomeBottom =()=>{
     return (
         <View style={styles.container}>
             <HomePageHeader/>
-            <View style={{paddingHorizontal:40}}>
-                <Bmi/>
-                <TodayTarget/>
-                <Text style={styles.head}>Activity Status</Text>
-                <HeartRate/>
-                <View>
-                 <WaterIntake/>
-                </View>
+            <View style={{paddingHorizontal:40,paddingTop:50}}>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <Bmi/>
+                    <TodayTarget/>
+                    <Text style={styles.head}>Activity Status</Text>
+                    <HeartRate/>
+                    <View style={styles.sub}>
+                    <WaterIntake/>
+                    </View>
+                </ScrollView>
+                
               
             </View>
         </View>
@@ -35,5 +38,8 @@ const styles = StyleSheet.create({
         fontWeight:'600',
         marginBottom:10,
         marginLeft:10
+    },
+    sub:{
+        flexDirection:'row'
     }
 })
