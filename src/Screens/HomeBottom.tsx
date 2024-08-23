@@ -3,11 +3,13 @@ import HomePageHeader from "../components/HomePageHeader";
 import Bmi from "../components/Bmi_Componet";
 import { Colors } from "../constants/Colors";
 import HeartRate from "../components/HeartRate";
+import TodayTarget from "../components/TodayTarget";
 const HomeBottom =()=>{
     return (
         <View style={styles.container}>
             <HomePageHeader/>
             <Bmi/>
+            <TodayTarget/>
             <HeartRate/>
         </View>
     )
