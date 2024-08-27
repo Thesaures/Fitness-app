@@ -1,16 +1,23 @@
 import { Ionicons } from "@expo/vector-icons";
 import { View,Text, StyleSheet } from "react-native"
 import Pancake from '../../assets/images/pancakes.svg'
-const MessageCard = ()=>{
+import { SvgProps } from "react-native-svg";
+type notify ={
+    header:string;
+    time:string;
+    Svg:React.FC<SvgProps>;
+}
+const MessageCard = (props:notify)=>{
+    const {header,time,Svg} = props;
     return(
         <View style={styles.container}>
-            <View style={{flex:1,flexDirection:'row'}}>
+            <View style={{flexDirection:'row'}}>
             <View style={styles.pic}>
             <Pancake height={30} width={44}/>
             </View>
-            <View style={{marginLeft:10}}>
-                <Text style={styles.textOne}>Hey,it's time for lunch</Text>
-                <Text  style={styles.textTwo}>About 1 minute ago</Text>
+            <View style={{marginLeft:10,flex:.9}}>
+                <Text style={styles.textOne}>{header}</Text>
+                <Text  style={styles.textTwo}>{time}</Text>
             </View>
             </View>
             <Ionicons name="ellipsis-vertical-outline" size={20}/>
@@ -21,7 +28,8 @@ export default MessageCard;
 const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
-        alignItems:'center'
+        alignItems:'center',
+        marginBottom:15
     },
     pic:{
        backgroundColor:'#A3FBE2',

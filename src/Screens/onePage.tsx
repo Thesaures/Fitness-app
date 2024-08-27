@@ -21,7 +21,7 @@ const OnePage=()=>{
             <Picture width={width * 1.1} height={height * 0.53} />
             </View>
             <View style={styles.lower}>
-                {/* <View style={{flex:.3,backgroundColor:'red'}}></View> */} 
+                {/* <View style={{flex:.3,backgroundColor:'red'}}></View>  */}
                 <View style={styles.section}>
                 <Text style={styles.header}>Track Your Goals</Text>
                 <Text style={styles.paragraph}>Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals</Text>
@@ -45,10 +45,7 @@ const OnePage=()=>{
                    }
                 }
                     />
-                </TouchableOpacity>
-               
-            
-                
+                </TouchableOpacity>    
                 </View>               
             </View>
         </View>
