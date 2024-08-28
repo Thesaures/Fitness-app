@@ -1,7 +1,8 @@
-import { View,Text, StyleSheet, ImageBackground } from "react-native"
+import { View,Text, StyleSheet, ImageBackground, Dimensions } from "react-native"
 import { Colors } from "../constants/Colors";
 import BackGroung from '../../assets/images/Banner.svg';
 import PieChart from 'react-native-pie-chart';
+const screenWidth = Dimensions.get("window").width;
 const Bmi =()=>{
     const widthAndHeight = 100
     const series = [95,265]
@@ -9,7 +10,7 @@ const Bmi =()=>{
     return (
         <View style={styles.container}>
            
-                  <BackGroung/>
+                  <BackGroung width={330} height={185}/>
                     <View style={styles.textContainer}>
                         <View style={styles.containerRight}>
                             <Text style={styles.text}>
@@ -44,8 +45,9 @@ const styles = StyleSheet.create({
     container:{
         justifyContent:'center',
         position:'relative',
-        zIndex:1,
-       
+        zIndex:1,  
+        width:screenWidth*0.8,
+        marginTop:30
     },
     textContainer:{
         position:'absolute',

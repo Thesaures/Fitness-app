@@ -7,3 +7,8 @@ export type card ={
     time:number;
     Svg:React.FC<SvgProps>;
 }
+export type waterMeasure={
+    start:string;
+    end:string;
+    measure:number;
+}
