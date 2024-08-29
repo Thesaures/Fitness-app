@@ -4,20 +4,32 @@ import Header from "../components/Header";
 import MessageCard from "../components/Message";
 import React from "react";
 import Pancake from '../../assets/images/pancakes.svg'
+import { SvgProps } from "react-native-svg";
+type notify ={
+    id:number,
+    header:string;
+    time:string;
+    Svg:React.FC<SvgProps>;
+}
 const arrayNoti =[
-    {
+    {   
+        id:'1',
         header:'hello one',
         time:'haii one',
         svg:Pancake
     },
-    {
+    {   
+        id:'2',
         header:'hello two',
         time:'haii two',
         svg:Pancake
-    }
+    },
 
 ]
 const Noification=()=>{
+    const renderItem = ({item}) => (
+        <MessageCard  key={item.id} header={item.header} time={item.time} Svg={undefined} />
+    );
     return(
         <>
         
@@ -26,9 +38,8 @@ const Noification=()=>{
             <View>
             <FlatList
                     data={arrayNoti}
-                    renderItem={({item}) => 
-                    <MessageCard header={item.header} time={item.time} Svg={undefined}/>
-                }
+                    renderItem={renderItem}
+                    keyExtractor={(item) =>item.id}  
                 />
             </View>
                 

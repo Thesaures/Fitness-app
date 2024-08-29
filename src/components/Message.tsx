@@ -15,7 +15,7 @@ const MessageCard = (props:notify)=>{
             <View style={styles.pic}>
             <Pancake height={30} width={44}/>
             </View>
-            <View style={{marginLeft:10,flex:.9}}>
+            <View style={styles.header}>
                 <Text style={styles.textOne}>{header}</Text>
                 <Text  style={styles.textTwo}>{time}</Text>
             </View>
@@ -43,5 +43,9 @@ const styles = StyleSheet.create({
      textTwo:{
         fontSize:15,
         fontWeight:'300'
-     }
+     },
+     header:{
+        marginLeft:10,
+        flex:.9
+    }
 })

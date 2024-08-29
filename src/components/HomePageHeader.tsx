@@ -12,7 +12,7 @@ interface head {
     title:string;
 }
 const HomePageHeader= ()=>{
-    const auth:[] = useSelector((state:{value:boolean}) =>state.auth.array);
+    const auth:[] = useSelector((state:{auth:{array:[]}}) =>state.auth.array);
     const [visible,setVisible] = useState(false);
     const showNotification =()=>{
          if(auth.length === 0){
