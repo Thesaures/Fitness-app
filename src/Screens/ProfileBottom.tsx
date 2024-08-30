@@ -1,12 +1,40 @@
-import { View,Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View,Text, StyleSheet, TouchableOpacity,Image } from "react-native";
 import Header from "../components/Header";
 import Detail from "../components/Detail";
+import Account from "../components/Account";
+import Toggle from "../components/Toggle";
+import * as ImagePicker from 'expo-image-picker';
+import Camera from "./camera";
+import React from 'react';
+import { useState } from "react";
 const ProfileBottom =()=>{
+    const [image, setImage] = useState<string | null>(null);
+    const select =async()=>{
+        console.log('enetered')
+        return(
+            <Camera/>
+        )
+        // let result = await ImagePicker.launchImageLibraryAsync({
+        //     mediaTypes: ImagePicker.MediaTypeOptions.All,
+        //     allowsEditing: true,
+        //     aspect: [4, 3],
+        //     quality: 1,
+        //   });
+        //   if (!result.canceled) {
+        //     console.log('result : ',result.assets[0].uri);
+        //     setImage(result.assets[0].uri);
+        //   }
+
+
+
+    }
     return(
         <View style={styles.container}>
             <Header title={"Profile"}/>
             <View style={styles.intro}>
-                 <View style={styles.image}></View>
+                 <TouchableOpacity onPress={select} style={styles.image}>
+                    {image && <Image source={{ uri: image }} style={{  width:60,height:60,borderRadius:50}}/>}
+                 </TouchableOpacity>
                  <View >
                     <Text style={styles.name}>Aidrin Varghese</Text>
                  </View>
@@ -19,6 +47,8 @@ const ProfileBottom =()=>{
               <Detail value={65} label={"weight"} measure={"kg"}/>
               <Detail value={22} label={"age"} measure={"yo"}/>
             </View>
+            <Account/>
+            <Toggle/>
         </View>
     )
 }

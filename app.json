@@ -28,6 +28,22 @@
       "eas": {
         "projectId": "c009bff4-9003-438b-8167-f1799368d8e8"
       }
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(Fitnes) to access your camera",
+          "microphonePermission": "Allow $(Fitnes) to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ]
+    ]
   }
 }

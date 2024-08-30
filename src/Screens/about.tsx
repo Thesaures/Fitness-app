@@ -189,7 +189,8 @@ const styles = StyleSheet.create({
     check:{
         height:13,
         width:13,
-        borderWidth:1
+        borderWidth:1,
+        padding:2
     },
     checkLine:{
         flexDirection:'row',
