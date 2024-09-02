@@ -21,6 +21,7 @@ const styles= StyleSheet.create({
         position:'absolute',
         top:0,
         width:'100%',
+        zIndex:2
     },
     text:{
         fontWeight:'700',
