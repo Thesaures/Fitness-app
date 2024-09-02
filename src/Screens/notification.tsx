@@ -6,7 +6,7 @@ import React from "react";
 import Pancake from '../../assets/images/pancakes.svg'
 import { SvgProps } from "react-native-svg";
 type notify ={
-    id:number,
+    id:string,
     header:string;
     time:string;
     Svg:React.FC<SvgProps>;
@@ -16,18 +16,18 @@ const arrayNoti =[
         id:'1',
         header:'hello one',
         time:'haii one',
-        svg:Pancake
+        Svg:Pancake
     },
     {   
         id:'2',
         header:'hello two',
         time:'haii two',
-        svg:Pancake
+        Svg:Pancake
     },
 
 ]
 const Noification=()=>{
-    const renderItem = ({item}) => (
+    const renderItem = ({item}:{item:notify}) => (
         <MessageCard  key={item.id} header={item.header} time={item.time} Svg={undefined} />
     );
     return(
