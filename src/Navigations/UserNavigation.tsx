@@ -4,6 +4,7 @@ import Intro from '../Screens/introduction';
 import BottomTabNavigation from './BottomNavigation';
 import Slider from '../Screens/slider';
 import Noification from '../Screens/notification';
+import Workout from '../Screens/Workout';
 const Stack = createNativeStackNavigator();
 
 const UserNavigation = () => {
@@ -33,6 +34,13 @@ const UserNavigation = () => {
        <Stack.Screen
         name="Noification"
         component={Noification}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Workout"
+        component={Workout}
         options={{
           headerShown: false,
         }}
