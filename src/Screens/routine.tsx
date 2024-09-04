@@ -6,9 +6,12 @@ import taskTwo from '../../assets/images/taskTwo.svg';
 import taskThree from '../../assets/images/taskThree.svg'
 import { card } from "../types/types";
 import { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
+import { NativeStackNavigationProp } from "react-native-screens/lib/typescript/native-stack/types";
 const Routine =()=>{
     const [personelArray,setPersonelArray] =useState<card[]>([])
+    const navigation: NativeStackNavigationProp<any> = useNavigation();
     const dataArray=[
         {
             index:1,
@@ -43,7 +46,9 @@ const Routine =()=>{
         }
         
     }
-    
+    const navigateTo =()=>{
+        navigation.navigate('Workout')
+    }
     return(
         <View style={styles.container}>
             <Text style={styles.heading}>Upcoming Workout</Text>
@@ -51,7 +56,7 @@ const Routine =()=>{
                 <FlatList
                 data={personelArray}
                 renderItem={({ item }) => 
-                 <TouchableOpacity onPress={()=>addValue(item)}>
+                 <TouchableOpacity onPress={navigateTo}>
                     <Workout header={item.header} number={item.number} time={item.time} Svg={item.Svg}/>
                  </TouchableOpacity>   
                 
