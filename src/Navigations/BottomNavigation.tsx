@@ -9,6 +9,7 @@ import React from "react";
 import Routine from "../Screens/routine";
 import CameraPage from "../Screens/camera";
 import HomeBottom from "../Screens/HomeBottom";
+import ProfileBottom from "../Screens/ProfileBottom";
 import { View } from "react-native";
 const BottomTab = createBottomTabNavigator();
 
@@ -64,7 +65,7 @@ const BottomTabNavigation = () =>{
             
             <BottomTab.Screen
                 name = "Profile"
-                component = {Profile}
+                component = {ProfileBottom}
                 options={{
                     headerShown: false,
                     tabBarIcon: ({color})=>(<Ionicons name="person" size={25} color={color}/>)

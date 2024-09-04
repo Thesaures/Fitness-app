@@ -21,12 +21,12 @@ const styles= StyleSheet.create({
         position:'absolute',
         top:0,
         width:'100%',
-        borderRadius:20,
+        zIndex:2
     },
     text:{
         fontWeight:'700',
         fontSize:20,
-        marginTop:40,
+        marginTop:15,
         marginBottom:10
     }
 })
