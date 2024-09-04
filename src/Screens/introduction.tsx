@@ -7,9 +7,9 @@ import Five from '../../assets/images/imageFive.svg'
 import React from "react";
 import { NativeStackNavigationProp } from "react-native-screens/lib/typescript/native-stack/types";
 import { useNavigation } from "@react-navigation/native";
-
+const { width, height } = Dimensions.get('window');
 const Intro =()=>{
-    const { width, height } = Dimensions.get('window');
+    
     const navigation: NativeStackNavigationProp<any> = useNavigation();
     const navigater =()=>{
         navigation.navigate('Slider');
