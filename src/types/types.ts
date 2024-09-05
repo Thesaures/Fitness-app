@@ -12,3 +12,16 @@ export type waterMeasure={
     end:string;
     measure:number;
 }
+export type singleSet={
+    Svg:React.FC<SvgProps>;
+    name:string;
+    set:string;
+}
+export type equip ={
+    name:string;
+    Svg:React.FC<SvgProps>;
+}
+export type exercises ={
+    id:string,
+    set:singleSet[]
+}
