@@ -6,36 +6,25 @@ import { data } from "../constants/Constants";
 import SetCard from "../components/Sets";
 import { sets } from "../constants/Constants";
 import { LinearGradient } from "expo-linear-gradient";
+import Jump from '../../assets/images/jumping.svg'
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
-  withTiming,
 } from 'react-native-reanimated';
 import {
   Gesture,
   GestureDetector,
-  GestureHandlerRootView,
 } from 'react-native-gesture-handler';
 
 const Workout = () => {
-  const { height } = Dimensions.get('screen');
-  console.log('height : ', height);
-  
-  // Define the minimum translation for upward movement
-  const MIN_TRANSLATION_Y = -height;
-  
   function clamp(val: number) {
     'worklet';
-    return Math.min(Math.max(val, -270), 0); // Clamp the value to ensure it does not go below MIN_TRANSLATION_Y
+    return Math.min(Math.max(val, -350), 0);
   }
-
   const prevTranslationY = useSharedValue(0);
   const offset = useSharedValue<number>(0);
-
   const pan = Gesture.Pan()
     .onBegin((event) => {
-     
       prevTranslationY.value = offset.value;
     })
     .activateAfterLongPress(1000)
@@ -52,7 +41,16 @@ const Workout = () => {
   }));
 
   return (
+    <LinearGradient
+        colors={['#EEA4CE', '#C150F6']}
+        start={{ x: 0, y: 0 }}  
+        end={{ x: 1, y: 0 }}  
+        style={Styles.container}
+       >
     <View style={Styles.container}>
+      <View style={Styles.circle}>
+         <Jump height={380} width={300}/>
+      </View>
       <GestureDetector gesture={pan}>
         <Animated.View style={[Styles.subContainer, animatedStyles]}>
           <View style={Styles.topView} />
@@ -109,6 +107,7 @@ const Workout = () => {
         </TouchableOpacity>
       </LinearGradient>
     </View>
+    </LinearGradient>
   );
 };
 
@@ -135,7 +134,8 @@ const Styles = StyleSheet.create({
     borderBottomWidth: 0,
     position: 'absolute',
     zIndex: 2,
-    top: 300
+    top: 380,
+    backgroundColor:'white'
   },
   topView: {
     backgroundColor: 'grey',
@@ -198,5 +198,13 @@ const Styles = StyleSheet.create({
   buttonLabel: {
     fontSize: 18,
     fontWeight: '600'
+  },
+  circle:{
+    height:300,
+    width:300,
+    backgroundColor:'#E4AAF3',
+    marginBottom:380,
+    borderRadius:140,
+    alignItems:'center'
   }
 });
